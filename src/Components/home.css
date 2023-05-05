@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Jost", sans-serif;
+  }
+  .yeardiv {
+    justify-content: center;
+    height: 100%;
+  
+    display: flex;
+    padding: 6rem;
+  }
+  h1 {
+    padding: 2rem;
+  }
+  .box1{
+
+  display: block;
+    padding: 10px;
+    margin-bottom: 30px;
+    text-align: justify;}
+    .box2{
+        display: block;
+        padding: 10px;
+        text-align: justify;
+    }
