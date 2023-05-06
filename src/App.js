@@ -6,6 +6,7 @@ import Allcourse from "./Components/Allcourse";
 import Addcourse from "./Components/Addcourse";
 import { Button } from "react-bootstrap";
 import {ToastContainer, toast} from "react-toastify";
+import UpdateCourse from "./Components/UpdateCourse";
 
 function App() {
   const btnHandle=()=>{
@@ -21,7 +22,7 @@ function App() {
           <Route exact path="/" Component={Home}></Route>
           <Route exact path="/allcourse" Component={Allcourse}></Route>
           <Route exact path="/addcourse" Component={Addcourse}></Route>
-          
+          <Route exact path="/updatecourse" Component={UpdateCourse}></Route>
         </Routes>
       </BrowserRouter>
     </div>

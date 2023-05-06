@@ -1,32 +1,41 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Course from "./Course";
-const Allcourse=()=> {
+import axios from "axios";
+import { toast } from "react-toastify";
+const Allcourse = () => {
+  const getallcoursesserver = () => {
+    axios.get(
+      `http://localhost:8080/courses`).
+      then(
+        (response) => {
+          console.log(response);
+          toast.success("courses has been loaded")
+          setcourse(response.data)
+        },
+        (error) => {
+          console.log(error);
+          toast.error("something went wrong")
+        }
+      
+    );
+  };
+  useEffect(()=>{
+    getallcoursesserver();
+  },[])
   const [courses, setcourse] = useState([
-    { title: "java core", desc: "this is java course" },
-    {
-      title: "react js",
-      desc: "this is reactjs course",
-    },
-    {
-        title:"nodejs",
-        desc:"y=this is nodejs course"
-    },
-    {
-        title:"python",
-        desc:"this is python course"
-    }
+   
   ]);
+  const removecoursebyid=(id)=>{
+setcourse(courses.filter((c)=>c.id!=id))
+  }
   return (
     <div>
       <h1>this is All courses page</h1>
       <h2>All courses list</h2>
-      {
-        courses.length>0? courses.map((item)=>(
-            <Course course={item}/>
-        )):"No courses"
-      }
-
+      {courses.length > 0
+        ? courses.map((item) => <Course key={item.id}course={item} update={removecoursebyid}/>)
+        : "No courses"}
     </div>
   );
-}
+};
 export default Allcourse;
