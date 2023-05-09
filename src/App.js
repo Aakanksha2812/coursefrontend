@@ -7,19 +7,17 @@ import Addcourse from "./Components/Addcourse";
 import { Button } from "react-bootstrap";
 import {ToastContainer, toast} from "react-toastify";
 import UpdateCourse from "./Components/UpdateCourse";
+import Login from "./Components/Login";
 
 function App() {
-  const btnHandle=()=>{
-    toast("this is first msg")
-  }
+  
   return (
     <div className="App">
-      <h1>GNPATI BAPPA MORYA</h1>
-      <ToastContainer/>
-      <Button color="warning" onClick={btnHandle}></Button>
+      
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" Component={Home}></Route>
+          <Route exact path="/" Component={Login}></Route>
+          <Route exact path="/home" Component={Home}></Route>
           <Route exact path="/allcourse" Component={Allcourse}></Route>
           <Route exact path="/addcourse" Component={Addcourse}></Route>
           <Route exact path="/updatecourse" Component={UpdateCourse}></Route>
